@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="header">
-        <img id="logo" src="images/logo.svg">
+        <img id="logo" src="logo.svg">
         <p id="title">My Booklist</p>
     </div>
     <div id="main-container">
@@ -17,6 +17,20 @@
         <div class="book">Testing</div>
         <div class="book">Testing</div>
         <div class="book">Testing</div>
+    </div>
+    <button id="modalBtn" onclick="displayModal()">Add Book</button>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn">&times;</span>
+                <h1>Book Details</h1>
+            </div>
+            <div class="modal-form">
+                <p>This is the main content</p>
+                <button id="addBook">Add Book</button>
+            </div>
+        </div>
     </div>
 
 
