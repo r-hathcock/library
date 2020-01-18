@@ -11,6 +11,7 @@
         <img id="logo" src="logo.svg">
         <p id="title">My Booklist</p>
     </div>
+    <button id="modalBtn" onclick="displayModal()">Add Book</button>
     <div id="main-container">
         <div class="book">Testing</div>
         <div class="book">Testing</div>
@@ -18,8 +19,6 @@
         <div class="book">Testing</div>
         <div class="book">Testing</div>
     </div>
-    <button id="modalBtn" onclick="displayModal()">Add Book</button>
-
     <div class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,7 +26,16 @@
                 <h1>Book Details</h1>
             </div>
             <div class="modal-form">
-                <p>This is the main content</p>
+                <form id="bookEntry">
+                    Title:<br>
+                    <input type="text" name="bookTitle"><br>
+                    Author:<br>
+                    <input type="text" name="bookAuthor"><br>
+                    Year:<br>
+                    <input type="text" name="bookYear"><br>
+                    Pages:<br>
+                    <input type="text" name="bookPages"><br>
+                </form>
                 <button id="addBook">Add Book</button>
             </div>
         </div>
