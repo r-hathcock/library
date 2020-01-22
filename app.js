@@ -9,7 +9,7 @@ function Book(title, author, year, length) {
     this.length = length;
 }
 
-var textNode = "hello";
+
 // adds book to myLibrary
 function displayModal() {
     // popup modal to retrieve book information
@@ -20,7 +20,12 @@ function displayModal() {
     modal.style.display = "block";
 
     addBookBtn.onclick = function() {
-        addBookToLibrary();
+        let bookName = document.getElementById("bookTitle").value;
+        let bookAuthor = document.getElementById("bookAuthor").value;
+        let bookDate = document.getElementById("bookYear").value;
+        let bookPages = document.getElementById("bookPages").value;
+
+        addBookToLibrary(bookName, bookAuthor, bookDate, bookPages); 
         modal.style.display = "none";
     } 
 
@@ -35,17 +40,20 @@ function displayModal() {
     } 
 }
 
-function addBookToLibrary() {
-    var mainDiv = document.getElementById("main-container");
-    var newBook = document.createElement("div");
-    newBook.className = 'book';
+function addBookToLibrary(title, author, date, length) {
+    var book = new Book(title, author, date, length);
 
-    var newContent = document.createTextNode(textNode);
-    newBook.appendChild(newContent);
-    mainDiv.appendChild(newBook);
+    render();
 }
 
 // updates page with new or deleted books
 function render() {
+    var textNode = "hello";
+    var mainDiv = document.getElementById("main-container");
+    var newBookElement = document.createElement("div");
+    newBookElement.className = 'book';
 
+    var newContent = document.createTextNode(textNode);
+    newBookElement.appendChild(newContent);
+    mainDiv.appendChild(newBookElement);
 }
