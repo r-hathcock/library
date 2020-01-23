@@ -23,7 +23,7 @@ body {
     flex-wrap: wrap;
     align-content: space-around;
 }
-.book {
+.book-card {
     width: 250px;
     height: 300px;
     border: 1px solid black;

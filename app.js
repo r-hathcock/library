@@ -10,7 +10,7 @@ function Book(title, author, year, length) {
 }
 
 
-// adds book to myLibrary
+// prompts user for book details when "add book" button is clicked
 function displayModal() {
     // popup modal to retrieve book information
     let modal = document.querySelector(".modal");
@@ -42,18 +42,46 @@ function displayModal() {
 
 function addBookToLibrary(title, author, date, length) {
     var book = new Book(title, author, date, length);
-
+    myLibrary.push(book);
     render();
 }
 
-// updates page with new or deleted books
+// creates book cards based on data from myLibrary[] 
 function render() {
-    var textNode = "hello";
     var mainDiv = document.getElementById("main-container");
-    var newBookElement = document.createElement("div");
-    newBookElement.className = 'book';
 
-    var newContent = document.createTextNode(textNode);
-    newBookElement.appendChild(newContent);
-    mainDiv.appendChild(newBookElement);
+    for (let i = 0; i < myLibrary.length; i++)
+    {
+        let newBookElement = document.createElement("div");
+        newBookElement.className = 'book-card';
+        newBookElement.setAttribute("data-index", i);
+
+        // create title, author, date, and length <div>. Append to new bookelement
+        let bookTitle = document.createElement("div");
+        let textNode = document.createTextNode(myLibrary[i].title);
+        bookTitle.className = "book-card-title";
+        bookTitle.appendChild(textNode);
+        newBookElement.appendChild(bookTitle);
+
+        let bookAuthor = document.createElement("div");
+        textNode = document.createTextNode(myLibrary[i].author);
+        bookAuthor.className = "book-card-author";
+        bookAuthor.appendChild(textNode);
+        newBookElement.appendChild(bookAuthor);
+
+        let bookDate = document.createElement("div");
+        textNode = document.createTextNode(myLibrary[i].date);
+        bookDate.className = "book-card-date";
+        bookDate.appendChild(textNode);
+        newBookElement.appendChild(bookDate);
+
+        let bookLength = document.createElement("div");
+        textNode = document.createTextNode(myLibrary[i].length);
+        bookLength.className = "book-card-length";
+        bookLength.appendChild(textNode);
+        newBookElement.appendChild(bookLength);
+
+        mainDiv.appendChild(newBookElement);
+    }
+    
 }
