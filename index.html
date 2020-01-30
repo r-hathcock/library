@@ -13,8 +13,6 @@
     </div>
     <button id="modalBtn" onclick="displayModal()">Add Book</button>
     <div id="main-container">
-        <div class="book-card">Testing</div>
-        
     </div>
     <div class="modal">
         <div class="modal-content">
@@ -38,7 +36,12 @@
         </div>
     </div>
 
-
+    <template id="footer-template">
+        <div class="footer-container">
+            <input class="footer-checkbox" type="checkbox" name="read-check"> Read<br>
+            <button class="footer-del-btn" type="button">Delete</button>
+        </div>
+    </template>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,11 +1,14 @@
 // array to store books
 let myLibrary = [];
+const mainDiv = document.getElementById("main-container");
+const footerTemplate = document.getElementById('footer-template');
+const footerNode = document.importNode(footerTemplate.content, true);
 
 // constructor for book objects
-function Book(title, author, year, length) {
+function Book(title, author, date, length) {
     this.title = title;
     this.author = author;
-    this.year = year;
+    this.date = date;
     this.length = length;
 }
 
@@ -48,10 +51,20 @@ function addBookToLibrary(title, author, date, length) {
 
 // creates book cards based on data from myLibrary[] 
 function render() {
-    var mainDiv = document.getElementById("main-container");
+    // deletes current children of main-container
+    while (mainDiv.firstChild) {
+        mainDiv.firstChild.remove();
+    }
 
+    // creates book cards depending on the contents of the myLibrary array
     for (let i = 0; i < myLibrary.length; i++)
     {
+        createNewBookCard(i);
+    }
+}
+
+function createNewBookCard(i) {
+        // create bookelement div
         let newBookElement = document.createElement("div");
         newBookElement.className = 'book-card';
         newBookElement.setAttribute("data-index", i);
@@ -81,7 +94,7 @@ function render() {
         bookLength.appendChild(textNode);
         newBookElement.appendChild(bookLength);
 
+        newBookElement.appendChild(footerNode);
+
         mainDiv.appendChild(newBookElement);
-    }
-    
 }
