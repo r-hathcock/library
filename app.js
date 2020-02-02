@@ -1,8 +1,7 @@
 // array to store books
 let myLibrary = [];
 const mainDiv = document.getElementById("main-container");
-const footerTemplate = document.getElementById('footer-template');
-const footerNode = document.importNode(footerTemplate.content, true);
+const footerTemplate = document.querySelector('template');
 
 // constructor for book objects
 function Book(title, author, date, length) {
@@ -46,6 +45,12 @@ function displayModal() {
 function addBookToLibrary(title, author, date, length) {
     var book = new Book(title, author, date, length);
     myLibrary.push(book);
+    render();
+}
+
+function deleteBook(elem) {
+    var bookIndex = elem.parentNode.parentNode.dataset.index;
+    myLibrary.splice(bookIndex, 1);
     render();
 }
 
@@ -94,6 +99,7 @@ function createNewBookCard(i) {
         bookLength.appendChild(textNode);
         newBookElement.appendChild(bookLength);
 
+        let footerNode = document.importNode(footerTemplate.content, true);
         newBookElement.appendChild(footerNode);
 
         mainDiv.appendChild(newBookElement);
