@@ -30,6 +30,8 @@
                     <input type="text" id="bookYear" value=""><br>
                     Pages:<br>
                     <input type="text" id="bookPages" value=""><br>
+                    Img URL:<br>
+                    <input type="text" id="bookImg" value="">
                 </form>
                 <button id="addBook">Add Book</button>
             </div>
@@ -38,7 +40,9 @@
 
     <template>
         <div class="footer-container">
-            <input class="footer-checkbox" type="checkbox" name="read-check"> Read<br>
+            <div class="checkbox-container">
+                <input class="footer-checkbox" type="checkbox" name="read-check">Read<br>
+            </div>
             <button class="footer-del-btn" type="button" onclick="deleteBook(this)">Delete</button>
         </div>
     </template>

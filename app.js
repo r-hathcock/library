@@ -4,11 +4,12 @@ const mainDiv = document.getElementById("main-container");
 const footerTemplate = document.querySelector('template');
 
 // constructor for book objects
-function Book(title, author, date, length) {
+function Book(title, author, date, length, imgUrl) {
     this.title = title;
     this.author = author;
     this.date = date;
     this.length = length;
+    this.imgUrl = imgUrl;
 }
 
 
@@ -26,8 +27,9 @@ function displayModal() {
         let bookAuthor = document.getElementById("bookAuthor").value;
         let bookDate = document.getElementById("bookYear").value;
         let bookPages = document.getElementById("bookPages").value;
+        let bookImg = document.getElementById("bookImg").value;
 
-        addBookToLibrary(bookName, bookAuthor, bookDate, bookPages); 
+        addBookToLibrary(bookName, bookAuthor, bookDate, bookPages, bookImg); 
         modal.style.display = "none";
     } 
 
@@ -42,8 +44,8 @@ function displayModal() {
     } 
 }
 
-function addBookToLibrary(title, author, date, length) {
-    var book = new Book(title, author, date, length);
+function addBookToLibrary(title, author, date, length, imgUrl) {
+    var book = new Book(title, author, date, length, imgUrl);
     myLibrary.push(book);
     render();
 }
@@ -101,6 +103,9 @@ function createNewBookCard(i) {
 
         let footerNode = document.importNode(footerTemplate.content, true);
         newBookElement.appendChild(footerNode);
+
+        console.log(myLibrary[i].imgUrl);
+        newBookElement.style.backgroundImage = "url(" + myLibrary[i].imgUrl + ")"; 
 
         mainDiv.appendChild(newBookElement);
 }

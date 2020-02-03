@@ -4,11 +4,11 @@
     [x] store details in book object
     [x] push new book object into array
     [x] display array of books
-[] footer 
+[x] footer 
     [x] read check box
-    [] delete button
-        [] create listener to determine currently selected book and remove from array
-        [] render()
+    [x] delete button
+        [x] create listener to determine currently selected book and remove from array
+        [x] render()
 [x] READ STATUS buton
 [] styles
 [] OPTIONAL: localStorage
