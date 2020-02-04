@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: Bookman Old Style;
 }
 #header {
     display: flex;
@@ -16,6 +17,23 @@ body {
     font-size: 25px;
     color: white;
     padding-right: 10px;
+}
+#modalBtn {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(62, 64, 66);
+    padding-bottom: 4px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    margin: 4px 2px;
+    border-radius: 50%;
+}
+#modalBtn:hover {
+  cursor: pointer;
 }
 #main-container {
     display: flex;
@@ -34,7 +52,6 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-
 .book-card-title {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -89,8 +106,9 @@ body {
     font-weight: bold;
   }
   .close-btn:hover {
-    color: darkgray;
+    cursor: pointer;
   }
+  
   @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
     to {top:0; opacity:1}

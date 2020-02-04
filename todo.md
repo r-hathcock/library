@@ -11,4 +11,7 @@
         [x] render()
 [x] READ STATUS buton
 [] styles
+    [] toggle between book cover and details when hover
+    [] button styles
+    [] text styles
 [] OPTIONAL: localStorage
