@@ -10,8 +10,7 @@
         [x] create listener to determine currently selected book and remove from array
         [x] render()
 [x] READ STATUS buton
-[] styles
-    [] toggle between book cover and details when hover
-    [] button styles
-    [] text styles
-[] OPTIONAL: localStorage
+[x] styles
+[x] clear modal upon open
+[] localStorage
+[] COMPLETE

@@ -1,17 +1,19 @@
 body {
     margin: 0;
     font-family: Bookman Old Style;
+    background-color: rgb(112, 110, 110);
 }
 #header {
     display: flex;
     width: 100%;
     height: 70px;
-    background-color: rgb(17, 102, 102);
+    background-color: rgb(102, 49, 49);
     justify-content: space-between;
 }
 #logo {
-    width: 80px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+    padding: 5px;
 }
 #title {
     font-size: 25px;
@@ -21,7 +23,7 @@ body {
 #modalBtn {
     width: 70px;
     height: 70px;
-    background-color: rgb(62, 64, 66);
+    background-color: rgb(70, 73, 75);
     padding-bottom: 4px;
     border: none;
     color: white;
@@ -44,35 +46,42 @@ body {
 .book-card {
     width: 250px;
     height: 300px;
-    border: 1px solid black;
     margin: 5px;
     display: grid;
-    grid-template-columns: 125px auto;
-    grid-template-rows: auto 25px 25px 25px 25px 50px;
+    grid-template-columns: 125px 125px;
+    grid-template-rows: 70px 60px 25px 25px 40px 50px;
+    background-image: url("https://imgur.com/7rtqAni.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    text-align: center;
 }
 .book-card-title {
+  color: white;
+  font-size: 25px;
+  text-decoration: underline;
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
 }
 .book-card-author {
+  color: white;
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
 }
 .book-card-date {
+  color: white;
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
 }
 .book-card-length {
+  color: white;
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 3;
   grid-row-start: 5;
   grid-row-end: 6;
 }
@@ -120,11 +129,22 @@ body {
 
 /* FOOTER */
 .footer-container {
-  border: 1px solid black;
   display: flex;
   justify-content: space-around;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 6;
   grid-row-end: 7;
+}
+.checkbox-container {
+  color: white;
+  font-size: 15px;
+}
+.footer-checkbox {
+  color: white;
+}
+.footer-del-btn {
+  width: 70px;
+  height: 30px;
+  text-align: center;
 }

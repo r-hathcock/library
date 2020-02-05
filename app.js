@@ -4,12 +4,11 @@ const mainDiv = document.getElementById("main-container");
 const footerTemplate = document.querySelector('template');
 
 // constructor for book objects
-function Book(title, author, date, length, imgUrl) {
+function Book(title, author, date, length) {
     this.title = title;
     this.author = author;
     this.date = date;
     this.length = length;
-    this.imgUrl = imgUrl;
 }
 
 
@@ -19,33 +18,34 @@ function displayModal() {
     let modal = document.querySelector(".modal");
     let closeBtn = document.querySelector(".close-btn");
     let addBookBtn = document.getElementById("addBook");
-
     modal.style.display = "block";
 
     addBookBtn.onclick = function() {
+        let bookForm = document.getElementById("bookEntry");
         let bookName = document.getElementById("bookTitle").value;
         let bookAuthor = document.getElementById("bookAuthor").value;
         let bookDate = document.getElementById("bookYear").value;
         let bookPages = document.getElementById("bookPages").value;
-        let bookImg = document.getElementById("bookImg").value;
-
-        addBookToLibrary(bookName, bookAuthor, bookDate, bookPages, bookImg); 
-        modal.style.display = "none";
+        const formInputs = [bookName, bookAuthor, bookDate, bookPages];
+        
+        // validation
+        if (formInputs.includes("")) {
+            alert("Please enter all values");
+        } else {
+            addBookToLibrary(bookName, bookAuthor, bookDate, bookPages);
+            bookForm.reset();
+            modal.style.display = "none";
+        }
+        
     } 
 
     closeBtn.onclick = function() {
         modal.style.display = "none";
     }
-
-    window.onclick = function(e) {
-        if (e.target == modal) {
-            modal.style.display = "none";
-        }
-    } 
 }
 
-function addBookToLibrary(title, author, date, length, imgUrl) {
-    var book = new Book(title, author, date, length, imgUrl);
+function addBookToLibrary(title, author, date, length) {
+    var book = new Book(title, author, date, length);
     myLibrary.push(book);
     render();
 }
@@ -96,16 +96,13 @@ function createNewBookCard(i) {
         newBookElement.appendChild(bookDate);
 
         let bookLength = document.createElement("div");
-        textNode = document.createTextNode(myLibrary[i].length);
+        textNode = document.createTextNode(myLibrary[i].length + " pages");
         bookLength.className = "book-card-length";
         bookLength.appendChild(textNode);
         newBookElement.appendChild(bookLength);
 
         let footerNode = document.importNode(footerTemplate.content, true);
-        newBookElement.appendChild(footerNode);
-
-        console.log(myLibrary[i].imgUrl);
-        newBookElement.style.backgroundImage = "url(" + myLibrary[i].imgUrl + ")"; 
+        newBookElement.appendChild(footerNode); 
 
         mainDiv.appendChild(newBookElement);
 }
