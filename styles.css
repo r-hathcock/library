@@ -7,7 +7,7 @@ body {
     display: flex;
     width: 100%;
     height: 70px;
-    background-color: rgb(102, 49, 49);
+    background-color: rgb(4, 49, 87);
     justify-content: space-between;
 }
 #logo {
@@ -49,14 +49,14 @@ body {
     margin: 5px;
     display: grid;
     grid-template-columns: 125px 125px;
-    grid-template-rows: 70px 60px 25px 25px 40px 50px;
+    grid-template-rows: 70px 60px 25px 25px 50px 50px;
     background-image: url("https://imgur.com/7rtqAni.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     text-align: center;
 }
 .book-card-title {
-  color: white;
+  color: rgb(7, 143, 52);
   font-size: 25px;
   text-decoration: underline;
   grid-column-start: 1;
@@ -65,21 +65,21 @@ body {
   grid-row-end: 3;
 }
 .book-card-author {
-  color: white;
+  color: rgb(7, 143, 52);
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
 }
 .book-card-date {
-  color: white;
+  color: rgb(7, 143, 52);
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
 }
 .book-card-length {
-  color: white;
+  color: rgb(7, 143, 52);
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 5;
@@ -89,11 +89,12 @@ body {
 /* MODAL */
 .modal {
     display: none;
-    position: fixed; 
-    left: 30%; 
-    top: 10%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 300px;
-    height: 400px; 
+    height: 350px; 
   }
   .modal-content {
     text-align: center;
@@ -137,11 +138,11 @@ body {
   grid-row-end: 7;
 }
 .checkbox-container {
-  color: white;
+  color: rgb(4, 49, 87);
   font-size: 15px;
 }
 .footer-checkbox {
-  color: white;
+  color: rgb(4, 49, 87);
 }
 .footer-del-btn {
   width: 70px;

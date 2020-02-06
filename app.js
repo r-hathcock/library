@@ -1,9 +1,14 @@
-// array to store books
 let myLibrary = [];
 const mainDiv = document.getElementById("main-container");
 const footerTemplate = document.querySelector('template');
 
-// constructor for book objects
+/**
+ * [Book object constructor]
+ * @param  {[string]} title [book title]
+ * @param  {[string]} author [book author]
+ * @param  {[string]} date [year book was first published]
+ * @param  {[string]} length [length of book in pages]
+ */
 function Book(title, author, date, length) {
     this.title = title;
     this.author = author;
@@ -11,8 +16,9 @@ function Book(title, author, date, length) {
     this.length = length;
 }
 
-
-// prompts user for book details when "add book" button is clicked
+/**
+ * [display and functionality of modal and user entry form]
+ */
 function displayModal() {
     // popup modal to retrieve book information
     let modal = document.querySelector(".modal");
@@ -36,7 +42,6 @@ function displayModal() {
             bookForm.reset();
             modal.style.display = "none";
         }
-        
     } 
 
     closeBtn.onclick = function() {
@@ -44,32 +49,47 @@ function displayModal() {
     }
 }
 
+/**
+ * [Creates book object based on entries from modal. Pushes onto myLibrary[]]
+ * @param  {[string]} title [book title]
+ * @param  {[string]} author [book author]
+ * @param  {[string]} date [year book was first published]
+ * @param  {[string]} length [length of book in pages]
+ */
 function addBookToLibrary(title, author, date, length) {
     var book = new Book(title, author, date, length);
     myLibrary.push(book);
     render();
 }
 
+/**
+ * [Deletes chosen book card]
+ * @param  {[element]} elem [parent element(book-card) of delete button that was clicked]
+ */
 function deleteBook(elem) {
     var bookIndex = elem.parentNode.parentNode.dataset.index;
     myLibrary.splice(bookIndex, 1);
     render();
 }
 
-// creates book cards based on data from myLibrary[] 
+/**
+ * [Clears all book cards and re-renders contents of myLibrary]
+ */
 function render() {
-    // deletes current children of main-container
     while (mainDiv.firstChild) {
         mainDiv.firstChild.remove();
     }
 
-    // creates book cards depending on the contents of the myLibrary array
     for (let i = 0; i < myLibrary.length; i++)
     {
         createNewBookCard(i);
     }
 }
 
+/**
+ * [Creates book card HTML element and appends info of book]
+ * @param  {[number]} i [current index of myLibrary[]]
+ */
 function createNewBookCard(i) {
         // create bookelement div
         let newBookElement = document.createElement("div");
