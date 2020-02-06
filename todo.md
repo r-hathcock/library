@@ -12,5 +12,4 @@
 [x] READ STATUS buton
 [x] styles
 [x] clear modal upon open
-[] localStorage
-[] COMPLETE
+[x] COMPLETE
