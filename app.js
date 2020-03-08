@@ -9,11 +9,13 @@ const footerTemplate = document.querySelector('template');
  * @param  {[string]} date [year book was first published]
  * @param  {[string]} length [length of book in pages]
  */
-function Book(title, author, date, length) {
-    this.title = title;
-    this.author = author;
-    this.date = date;
-    this.length = length;
+class Book {
+    constructor (title, author, date, length) {
+        this.title = title;
+        this.author = author;
+        this.date = date;
+        this.length = length;
+    }
 }
 
 /**
